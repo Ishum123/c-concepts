@@ -60,4 +60,43 @@ void leftRotate(int arr[], int d, int n)
         }
     }
     
-    
+// 5 maximum diff in array elements a[j]-a[i] j>i in o(n) time
+
+int maxDiff(int arr[], int n)
+{
+	int res = arr[1] - arr[0], minVal = arr[0];
+
+	for(int i = 1; i < n; i++)
+	{
+		
+			res = max(res, arr[i] - minVal);
+			
+			minVal = min(minVal, arr[i]);
+	}
+
+	return res;
+}
+
+
+//6  frequency of array element
+
+void printFreq(int arr[], int n)
+{
+	int freq = 1, i = 1;
+
+	while(i < n)
+	{
+		while(i < n && arr[i] == arr[i - 1])
+		{
+			freq++;
+			i++;
+		}
+
+		cout<<arr[i - 1] << " " << freq << endl;
+
+		i++;
+		freq = 1;
+	}
+}
+
+
