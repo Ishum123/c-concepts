@@ -4,3 +4,5 @@
 
 450A //esa code kese aaya?   kyuki mod m krne se uske rounds pta chlre.. like let a[i]=6 and m=3 to 2 round me maamla clear to ek to ho chuka isliye when a[i]%m==0, we do minus 1 and vrna sirf mod hi. to get number of rounds.
 
+165A // very nice if compare many situatuions at once
+139 // very easy hona tha mtlb bas ek simple while condition daalni thi 
