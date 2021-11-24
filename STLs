@@ -28,4 +28,6 @@ int main()
  
     return 0;
 }
-Output: 
+
+
+// vector<int> v(50); like this vector having 50 elements
