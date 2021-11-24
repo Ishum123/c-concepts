@@ -31,3 +31,16 @@ int main()
 
 
 // vector<int> v(50); like this vector having 50 elements
+
+
+//* working with vector and pairs...
+vector< pair <int,int>> p;
+   
+   p.push_back(make_pair(1,2));
+   p.push_back(make_pair(1,1));
+   
+   sort(p.begin(),p.end());
+   
+   for(int i=0;i<p.size();i++){
+       cout<<p[i].first<<" "<<p[i].second<<endl;
+   }
