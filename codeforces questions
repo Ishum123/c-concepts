@@ -13,3 +13,43 @@
 asking rep:
 1) bicycle chain one, why mine giving run time error
 2) Football, couldn't understands the logic
+
+
+CP :
+strings:
+regex..
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string s;
+    cin>>s;
+    regex s2("WUB");
+    cout<<regex_replace(s,s2," ")<<endl;
+    return 0;
+}
+ 	          		  	       		    	
+string deletion of substrings:
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+ 
+ string y;
+ cin>>y;
+
+ 
+ for(int i=0;i<y.size();i++)
+ {
+  if(y[i]=='W'&&y[i+1]=='U'&&y[i+2]=='B')
+  {
+   y.erase(i,2);
+   if(i>0)cout<<" ";
+  }
+  else cout<<y[i];
+ }
+ 
+}
