@@ -13,7 +13,15 @@
 asking rep:
 1) bicycle chain one, why mine giving run time error
 2) Football, couldn't understands the logic
-
+3) map<char, int> mp;
+    for (auto e : s)mp[e]++;
+    for (auto e : mp) {
+        if (e.second < k) {
+            cout << -1;
+            return 0;
+        }
+        repeat += string(e.second / k, e.first);
+    } what does this do??
 
 CP :
 strings:
