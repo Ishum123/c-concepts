@@ -1,0 +1,128 @@
+ll _gcd(ll A,ll B){
+    if(!B) return A;
+    return _gcd(B,A%B);
+}
+bool check(vector<ll> &A,ll N,ll mid){
+    vector<ll> B(N,0);
+    for(ll i=0;i<N;i++){
+        if(A[i]%mid==0){
+            B[i]=1;
+        }
+        if(i!=0 and B[i]==B[i-1]){
+            return false;
+        }
+    }
+    return true;
+}
+//sort(A,A+N);
+//sort(arr, arr + n, greater<int>());
+// vector<int> v(50); like this vector having 50 elements
+// s[i]-'0'  string element to integer
+//transform(s.begin(), s.end(), s.begin(), ::toupper); (for whole string)
+
+/*if (str[i] >= 'a' && str[i] <= 'z')
+      {
+        // Convert into Upper-case
+        str[i] = (char)(str[i] - 'a' + 'A');
+      }*/
+// reverse(str.begin(), str.end());
+
+
+int countdigit(long n){
+    return floor(log10(n)+1);
+}
+
+ int gcd(int a, int b)
+{
+	if(b==0)
+		return a;
+
+	return gcd(b, a % b);
+}
+
+long long lcm(int a, int b)
+{
+    return (a / gcd(a, b)) * b;
+}
+
+bool isPrime(int n)
+{
+	if(n==1)
+		return false;
+
+	if(n==2 || n==3)
+		return true;
+
+	if(n%2==0 || n%3==0)
+		return false;
+
+	for(int i=5; i*i<=n; i=i+6)
+	{
+		if(n % i == 0 || n % (i + 2) == 0)
+			return false; 
+	}
+
+	return true;
+}
+
+
+void reverseStr(string& str)
+{
+    int n = str.length();
+ 
+    // Swap character starting from two
+    // corners
+    for (int i = 0; i < n / 2; i++)
+        swap(str[i], str[n - i - 1]);
+}
+
+bool printCharWithFreq(string str,int k)
+{
+    // size of the string 'str'
+    int n = str.size(),flag=1;
+ int SIZE=26;
+    // 'freq[]' implemented as hash table
+    int freq[SIZE];
+ 
+    // initialize all elements of freq[] to 0
+    memset(freq, 0, sizeof(freq));
+ 
+    // accumulate frequency of each character in 'str'
+    for (int i = 0; i < n; i++)
+        freq[str[i] - 'a']++;
+ 
+    // traverse 'str' from left to right
+    for (int i = 0; i < n; i++) {
+ 
+        // if frequency of character str[i] is not
+        // equal to 0
+        if (freq[str[i] - 'a'] %k!= 0) {
+            flag=0;
+            return false;
+           break;
+        }
+    }
+    if(flag==1) return true;
+}
+//s.erase(remove(s.begin(), s.end(), 'a'), s.end());
+bool Palindrome(string S)
+{
+	// Stores the reverse of the
+	// string S
+	string P = S;
+
+	// Reverse the string P
+	reverse(P.begin(), P.end());
+
+	// If S is equal to P
+	if (S == P) {
+		// Return "Yes"
+		return true;
+	}
+	// Otherwise
+	else {
+		// return "No"
+		return false;
+	}
+}
+
