@@ -39,3 +39,48 @@ Sol:  int n;
         cout<<i<<" ";
    }
    cout<<endl;
+
+
+Q2: Very very important To convert Binary Tree into BST:
+Link: https://www.geeksforgeeks.org/minimum-swap-required-convert-binary-tree-binary-search-tree/#:~:text=Given%20the%20array%20representation%20of,it%20into%20Binary%20Search%20Tree.&text=Swap%201%3A%20Swap%20node%208,node%209%20with%20node%2010.
+
+Sol:
+ //approach is to convert inorder traversal of binary tree, as inorder of a BST will be sorted array itself.
+ //So we make sorted array and solve the question.
+
+//inorder function
+void inorder(vector<int> &v, int n, int index, int a[]){
+      if(index>=n){
+      return;
+      }
+      
+      inorder(v, n, 2*index + 1, a); //left
+      v.push_back(a[index]);
+      inorder(v, n, 2*index+2, a); //right
+  }
+
+
+//minimum swaps function
+int minSwaps(vector<int> v, int n ){
+      vector<pair<int,int>> t(n);
+      
+      for(int i=0;i<n;i++){
+            t[i].first=v[i];
+            t[i].second=i;
+      }
+      
+      sort(t.begin(),t.end());
+      
+     for(int i=0;i<n;i++){
+     if(t[i].second!=i){
+           swap(t[i].first,t[t[i].second].first);
+           swap(t[i].second,t[t[i].second].second);
+     }
+           
+           if(i!=t[i].second){
+           i--;
+           ans++;
+           }
+     }
+      return ans;
+}
