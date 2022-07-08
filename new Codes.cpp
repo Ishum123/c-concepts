@@ -84,3 +84,68 @@ int minSwaps(vector<int> v, int n ){
      }
       return ans;
 }
+
+Q3: Minimum time to complete all tasks. (Greedy plus binary Search!)
+Link: https://www.google.com/url?q=https://www.geeksforgeeks.org/find-minimum-time-to-finish-all-jobs-with-given-constraints/&sa=D&source=editors&ust=1654850639064943&usg=AOvVaw1x6fTB3jCSku63z0n1xDCn
+
+Sol://same as allocate minimum pages just multiply by t at last!
+
+void hihi(){
+   
+   int k,t;
+   cin>>k>>t;
+   int n;
+   cin>>n;
+   
+   int ans=INT_MAX;
+   
+   vector<int> a(n);
+   take(a);
+   
+   sort(all(a));
+   
+   int low=0,high=0;
+   
+   for(int i=0;i<n;i++){
+        high+=a[i];
+   }
+   
+   
+   while(low<=high){
+        int mid=low+(high-low)/2;
+        int st=1;
+        int sum=0;
+        
+        
+        for(int i=0;i<n;i++){
+             if(a[i]>mid){
+                  break;
+             }
+             
+             if(sum+a[i]>mid){
+                  sum=a[i];
+                  st++;
+             
+             
+             if(st>k){
+                  break; //check inside the if condition!
+             }
+             }
+             
+             else{
+                  sum=sum+a[i];
+             }
+        }
+        
+        if(st==k){
+             ans=min(mid,ans);
+             high=mid-1;
+        }
+        
+        else low=mid+1;
+   }
+   
+   cout<<ans*t<<endl;
+   
+   return;
+}
