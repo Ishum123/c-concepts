@@ -74,3 +74,35 @@ for(int i=n-1;i>=1;i--){
 }
 
 //ans from index 1 to n contains your answer!
+
+4) Circular tour problem can be easily done by undertanding and logic building.
+just need to keep track of balance array, let it not become negative, if it vecomes negative, answer is not possible!
+//Code:
+        void hihi(){
+   
+   vector <int> petrol(n),distance(n);
+   take(petrol);
+   take(distance);
+   
+   int start=0, prev=0, curr=0;
+   
+   for(int i=0;i<n;i++){
+        curr+=(petrol[i]-distance[i]);
+        
+        if(curr<0){
+             prev+=curr;
+             curr=0;
+             start=i+1; //if i se answer nahi bna to bich se bhi nahi bnega vro, aur worse ho jaayega!
+        }
+   }
+   
+   if(curr+prev>=0){
+        cout<<start<<endl;
+   }
+   
+   else{
+        cout<<-1<<endl; //not possible!
+   }
+   
+   return;
+}
