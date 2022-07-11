@@ -44,3 +44,33 @@ int countNumber(int n)
  
     return result;
 }
+
+2) Largest area in histogram and largest area of rectagnles in matrix.
+
+3) Maximum of minimum for every window of size in a given array.
+Link: https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/
+
+
+Question uses, next smaller and previous smaller element array(Store indexes), when made keep len=right[i]-left[i]-1; ans for this length=ans[len]=max(ans[len],arr[i]);
+
+Code:
+
+
+int left[n+1],right[n+1]; //fill be previous smaller and next smaller code!(You know that!):)
+int ans[n+1]; //for length 1 to n
+
+for(int i=0;i<=n;i++){
+    ans[i]=0;
+}
+
+for(int i=0;i<n;i++){
+     int len=right[i]-left[i]-1;
+    ans[len]=max(ans[len],arr[i]);
+}
+
+//to fill entries which are still zero by taking values from right side of one.
+for(int i=n-1;i>=1;i--){
+  ans[i]=max(ans[i],ans[i+1]);
+}
+
+//ans from index 1 to n contains your answer!
