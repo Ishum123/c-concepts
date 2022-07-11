@@ -1,5 +1,5 @@
 //Approach use din question: https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1#
-
+//Also rotten oranges can be done by the same approach, just update ans=res[i][j] in every iteration,wriiten in comments below.
 //Traversing in four directions.
     vector<vector<int>> dir={{0,1},{1,0},{0,-1},{-1,0}};
     
@@ -35,6 +35,7 @@
 	            if(i>=0 and j>=0 and i<m and j<n){
 	                if(res[i][j]> res[x][y]+1){
 	                    res[i][j]=res[x][y]+1;
+				//ans=res[i][j];
 	                    q.push({i,j});
 	                }
 	            }
