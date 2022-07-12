@@ -1,5 +1,5 @@
 Q1) Reversing edge of graph st destination is reachable from source.
-Link: https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-destination/
+Link: https://www.codechef.com/problems/REVERSE
 
 //Approach:
 1) Think Greedily!
@@ -9,4 +9,7 @@ Link: https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-desti
   
 Trying....
 //Code
+https://www.codechef.com/viewsolution/68787528
+(use 0-1 BFS for better time complexity than Dijstra).
+(Everything about BFs in notes).
   
