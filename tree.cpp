@@ -46,4 +46,31 @@ int main(){
         cout << "-1";
      
 }
+
+Q2) Binary Tree to DLL:
+# We would use the same left and right pointers to convert binary tree to linked list, while doing inorder traversal of tree
+# if prev==NULL, this means this is head pointer,
+# Rest we just need to change the references of prev and root and we'll get our answers.
+
+Code: 
+  Node *prev=NULL;
+    
+    Node * bToDLL(Node *root)
+    {
+        if(root==NULL) return root; //end of linked list
+        
+        Node *head=bToDLL(root->left);//inorder first call
+        if(prev==NULL){
+            head=root; //head of the linked list, if orev is null, this is first pointer
+        }
+        
+        else{
+            root->left=prev;//making connections.
+            prev->right=root;
+        }
+        prev=root; //update for next iteration
+        
+        bToDLL(root->right); //inorder right call.
+        return head; //returning answer
+    }
   
