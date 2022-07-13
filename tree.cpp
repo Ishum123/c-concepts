@@ -74,3 +74,10 @@ Code:
         return head; //returning answer
     }
   
+Q3) Tree from postorder and inorder, preorder and inorder:
+1) In inorder, we follow normal inorder traversal,
+2) while in postorder, we reverse the criteria, that is we do: root->right->left instead of left->right->root. Also we start with reverse iterating in post array.
+  
+Links:
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+https://practice.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/0/?track=DSASP-Tree&batchId=154#
