@@ -43,3 +43,113 @@ problems:
 	    return dp[n];
 	}
 
+3) Questions that use LCS concept:
+   a) Diff Utility
+   b) min number of insertions/deletions: (n-lcs)+(m-lcs) link:https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1
+   c) Shortest common supersequence(length): (m+n)-lcs
+   d) Shortest common supersequence(string hard): 
+       Approach: 1) Combination of c and making of string
+       Code with explanation: https://leetcode.com/submissions/detail/746996850/
+   e) Longest palindromic subsequence: (length) easy: lcs(reverse,string)
+   f) Longest palindromic subsequence: (string) hard: 
+       Code: string lpa(string a)
+{
+     int n=a.size();
+        
+        string rev=a;
+        reverse(rev.begin(),rev.end());
+        
+        string ans="";
+        
+        int dp[n+1][n+1];
+        
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=n;j++){
+                if(i==0 or j==0){
+                    dp[i][j]=0;
+                }
+                
+                else{
+                    if(a[i-1]==rev[j-1]){
+                        dp[i][j]=1+dp[i-1][j-1];
+                    }
+                    
+                    else{
+                        dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                    }
+                }
+            }
+        }
+        
+        int i=n,j=n;
+        
+        while(i>0 and j>0){
+             if(a[i-1]==rev[j-1]){
+                  ans+=a[i-1];
+                  i--;
+                  j--;
+             }
+             
+             else if(dp[i-1][j]>dp[i][j-1]){
+                  i--;
+             }
+             
+             else{
+                  j--;
+             }
+        }
+        
+        return ans;
+}
+     g) Longest repeating subseq
+     h) Space optimised solution of LCS
+     i) Printing LCS:
+         Code:
+         string lcs(string a,string rev)
+{
+     int n=a.size();
+     int m=rev.size();
+        
+        string ans="";
+        
+        int dp[n+1][m+1];
+        
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=m;j++){
+                if(i==0 or j==0){
+                    dp[i][j]=0;
+                }
+                
+                else{
+                    if(a[i-1]==rev[j-1]){
+                        dp[i][j]=1+dp[i-1][j-1];
+                    }
+                    
+                    else{
+                        dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                    }
+                }
+            }
+        }
+        
+        int i=n,j=m;
+        
+        while(i>0 and j>0){
+             if(a[i-1]==rev[j-1]){
+                  ans+=a[i-1];
+                  i--;
+                  j--;
+             }
+             
+             else if(dp[i-1][j]>dp[i][j-1]){
+                  i--;
+             }
+             
+             else{
+                  j--;
+             }
+        }
+       
+       reverse(ans.begin(),ans.end());
+        return ans;
+}
