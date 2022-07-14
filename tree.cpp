@@ -81,3 +81,21 @@ Q3) Tree from postorder and inorder, preorder and inorder:
 Links:
 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 https://practice.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/0/?track=DSASP-Tree&batchId=154#
+
+Q4) Given a height h, count the maximum number of balanced binary trees possible with height h. Print the result modulo 109 + 7.
+Link: https://practice.geeksforgeeks.org/problems/bbt-counter4914/1
+
+#Approach: this is a dp solution. Maximum possible balanced trees of height h follow recursive formula:
+# dp[i]=(dp[i-1]*((2*dp[i-2])%mod + dp[i-1])%mod;
+
+Code:
+long long int countBT(int h) {
+      
+    long long int dp[h + 1];
+    //base cases
+    dp[0] = dp[1] = 1;
+    for(int i = 2; i <= h; i++) {
+        dp[i] = (dp[i - 1] * ((2 * dp [i - 2])%mod + dp[i - 1])%mod) % mod;
+    }
+    return dp[h];
+}
