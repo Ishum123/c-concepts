@@ -43,6 +43,8 @@ problems:
 	    return dp[n];
 	}
 
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+
 3) Questions that use LCS concept:
    a) Diff Utility
    b) min number of insertions/deletions: (n-lcs)+(m-lcs) link:https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1
@@ -154,6 +156,9 @@ problems:
         return ans;
 }
 
+
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+
 4) Word Break problem
 # approach: We use a boolean vector dp[]. dp[i] is set to true if a valid word (word sequence) ends there. The optimization is
 # to look from current position i back and only look up in case the preceding position j with dp[j] == true is found.
@@ -187,3 +192,6 @@ Code:  bool wordBreak(string s, vector<string>& wdict) {
         return dp[n];
     }
 };
+
+
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
