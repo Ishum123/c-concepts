@@ -153,3 +153,37 @@ problems:
        reverse(ans.begin(),ans.end());
         return ans;
 }
+
+4) Word Break problem
+# approach: We use a boolean vector dp[]. dp[i] is set to true if a valid word (word sequence) ends there. The optimization is
+# to look from current position i back and only look up in case the preceding position j with dp[j] == true is found.
+
+Code:  bool wordBreak(string s, vector<string>& wdict) {
+        int n=s.length();
+        
+        unordered_set<string> dict; //to find if string is present or not
+        for(int i=0;i<wdict.size();i++){
+            dict.insert(wdict[i]);
+        }
+        
+        vector<bool> dp(n,false); //ans vector
+            
+        dp[0]=true; //if no char left
+        
+        for(int i=1;i<=n;i++){
+            for(int j=i-1;j>=0;j--){
+                //iterate back and check whether a string exists!
+                if(dp[j]){
+                    string word=s.substr(j,i-j);
+                    
+                    if(dict.find(word)!=dict.end()){
+                       dp[i]=true;
+                        break; //found a string
+                    }
+                }
+            }
+        }
+        
+        return dp[n];
+    }
+};
