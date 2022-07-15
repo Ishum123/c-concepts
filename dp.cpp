@@ -197,3 +197,7 @@ Code:  bool wordBreak(string s, vector<string>& wdict) {
  -----------             *               -----------                 *             ---------------              *                  ---------------------           *
  5) Combination Sums
  Link: https://leetcode.com/problems/combination-sum-iv/discuss/85120/C%2B%2B-template-for-ALL-Combination-Problem-Set
+
+# Combination sum ->printing all possible combinations is a backtracking solution
+# while printing number of possible combinations is a dp solution, its complexity is nlogn due to sorting: just check if(i<nums[j)then break, else dp[i]+=dp[i-nums[j]]
+
