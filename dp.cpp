@@ -201,3 +201,10 @@ Code:  bool wordBreak(string s, vector<string>& wdict) {
 # Combination sum ->printing all possible combinations is a backtracking solution
 # while printing number of possible combinations is a dp solution, its complexity is nlogn due to sorting: just check if(i<nums[j)then break, else dp[i]+=dp[i-nums[j]]
 
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+ 6) Maximum Jump problem:
+   # a) need to figure out whether we would reach end or not.
+   # Recursion mx=max(mx,nums[i]+i); //i should be less than maxindex, bcoz if it becomes greater, that means we can't reach there with our current max.
+
+
+
