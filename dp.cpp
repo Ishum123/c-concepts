@@ -206,5 +206,58 @@ Code:  bool wordBreak(string s, vector<string>& wdict) {
    # a) need to figure out whether we would reach end or not.
    # Recursion mx=max(mx,nums[i]+i); //i should be less than maxindex, bcoz if it becomes greater, that means we can't reach there with our current max.
 
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+ 7) Partition sum problem:
+# Approach: Very easy and logical, 
+# Obs-1) If sum is odd, we can never divide it, so bool=false;
+# Obs-2) If we divide sum by 2 and find sum/2 in array, problem reduces to subset sum problem as if sum/2 is found, the rest of the sum in the array is also sum/2
+# Hence the logic is clear.
+# Now let us code:
+Code:
+int equalPartition(int n, int arr[])
+    {
+        int sum=0;
+        
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+        }
+        
+        if(sum%2){
+            return 0;
+        }
+        
+        sum=sum/2; //finding sum/2 in array, reducing problem to subset sum.
+        
+        int dp[n+1][sum+1];
+        
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=sum;j++){
+                
+                //if sum=0 means we made the sum, hence ans=1
+                if(j==0){
+                    dp[i][j]=1;
+                }
+                
+                //if no element is left and sum is not formed, ans=0
+                else if(i==0){
+                    dp[i][j]=0;
+                }
+                
+                else{
+                    if(arr[i-1]>j){
+                        dp[i][j]=dp[i-1][j]; //no other option as array value is greater than current sum
+                    }
+                    
+                    else{
+                       dp[i][j]=dp[i-1][j] || dp[i-1][j-arr[i-1]];
+                       //if one is true, we got it!
+                    }
+                }
+            }
+        }
+        
+        return dp[n][sum];
+    }
+## Note: Take care of if else, because if you miss middle else if, the above if would become the only if statement for the next else!!
 
 
