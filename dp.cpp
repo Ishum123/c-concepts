@@ -260,4 +260,13 @@ int equalPartition(int n, int arr[])
     }
 ## Note: Take care of if else, because if you miss middle else if, the above if would become the only if statement for the next else!!
 
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+ 8) Gold Mine Problem:
+# to reach from first col to last while collecting maximum gold, recursion is quite clear
+# it is max(dp[i-1][j-1], dp[i][j-1], dp[i+1][j-1])+gold[i][j] with all boundary conditions.
+# But we are moving from right to left, hence we need to fill the rows and columns by first filling all rows in previous columns and then moving ahead
+# So the for loop is opposite of the usual ones!
+PS: It is not a combinatories problem as combinatories work when number of ways are required.
 
+Code:
+https://practice.geeksforgeeks.org/viewSol.php?subId=331263e06b325b38264ae20c2ea7d1c9&pid=704162&user=yashasweni123
