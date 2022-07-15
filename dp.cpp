@@ -195,3 +195,5 @@ Code:  bool wordBreak(string s, vector<string>& wdict) {
 
 
  -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+ 5) Combination Sums
+ Link: https://leetcode.com/problems/combination-sum-iv/discuss/85120/C%2B%2B-template-for-ALL-Combination-Problem-Set
