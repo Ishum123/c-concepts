@@ -225,73 +225,24 @@ int maxEvenOdd(int arr[], int n)
 }
 
 
-//13* majority element (element occured more than n/2);
-
-int n;
-cin>>n;
-
-int maxn=0;
-int a[n];
-for(int i=0;i<n;i++) {cin>>a[i];
-maxn=max(maxn,a[i]);
+// 13 - Maximum product subarray:
+ int maxProduct(vector<int>& nums) {
+       //optimised dp solution  
+        int mx=nums[0];
+        int mn=nums[0];
+        int ans=nums[0];
+        
+        int n=nums.size();
+        
+        for(int i=1;i<n;i++){
+            int temp=mx;
+            
+            mx=max({nums[i]*temp, nums[i]*mn, nums[i]}); //either of three can be maximum due to negative number multiplications.
+            mn=min({nums[i]*temp, nums[i]*mn, nums[i]});
+            
+            ans=max(ans,mx);
+        }
+        
+        return ans;
 }
-//cout<<maxn<<endl;
-
-int b[maxn]={0};
-for(int i=0;i<n;i++){
- b[a[i]]++;    
-}
-
-int cnt=0,ans=0,i=0;
-for( i=0;i<maxn;i++){
-    if(b[i]>cnt){
-        cnt=b[i];
-        ans=i;
-    }
-}
-//cout<<ans<<endl;
-//cout<<cnt<<endl;
-int temp=0;
-for(int i=0;i<n;i++){
-    if(ans==a[i]){ //6==6
-    temp=i;
-    break;
-}
-}
-if(cnt>n/2){
-    cout<<temp;
-}
-else{
-    cout<<"-1";
-}
-
-gfg code:
-
-int findMajority(int arr[], int n)
-{
-	int res = 0, count = 1;
-
-    	for(int i = 1; i < n; i++)
-    	{
-    		if(arr[res] == arr[i])
-    			count++;
-    		else 
-    			count --;
-
-    		if(count == 0)
-    		{
-    			res = i; count = 1;
-    		}
-    	}
-
-    	count = 0;
-
-    	for(int i = 0; i < n; i++)
-    		if(arr[res] == arr[i])
-    			count++;
-
-    	if(count <= n /2)
-    		res = -1;
-
-    	return res; 
-}
+	
