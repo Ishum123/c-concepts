@@ -270,3 +270,21 @@ PS: It is not a combinatories problem as combinatories work when number of ways 
 
 Code:
 https://practice.geeksforgeeks.org/viewSol.php?subId=331263e06b325b38264ae20c2ea7d1c9&pid=704162&user=yashasweni123
+
+
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+ 9) Cutting maximum segments problem:
+# need to find maximum segments that can be cut,
+# the recursive memoisation solution is easy and intuitive, that recur until l==0, and keep subtracting x/y/z:
+# pseudocode:
+if(l==0)return 0;
+if(dp[n]!=-1) return dp[n];
+if(x<=n) a=func(n-x,x,y,z);
+if(y<=n) b=func(n-y,x,y,z);
+if(z<=n) c=func(n-z,x,y,z);
+return dp[n]=max(a,b,c)+1;
+# This can also be solved by coin change problem with little changes!
+Link: https://practice.geeksforgeeks.org/viewSol.php?subId=c20ca4d2c92b2e8dd29a4f53a72eb99c&pid=701901&user=yashasweni123
+
+ -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+
