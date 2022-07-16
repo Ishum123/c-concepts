@@ -313,3 +313,80 @@ Code:
        return res.size();
 }
 -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+11) Minimum moves to reach the end:
+   # O(n square) DP solution:
+   //Similar to LIS
+   vector<ll> dp(n,INT_MAX);
+   
+   //dp[i] represents minimum moves required to reach i
+   dp[0]=0; //can get to 0 by 0 moves
+   
+   for(int i=1;i<n;i++){
+        for(int j=0;j<i;j++){
+             if(i<=j+v[j]){
+                  //if we can reach i from jth move
+                  dp[i]=min(dp[i],dp[j]+1);
+                  break;
+             }
+        }
+   }
+   
+    cout<<dp[n-1]<<endl;
+
+   # O(n) greedy solution:
+   void hihi(){
+    
+   int n;
+   cin>>n;
+  
+   vector<int> a(n);
+   take(a);
+   
+   /*
+   #1) Take three variables:
+      a) maxReach to tell you ki yha se kaha tk jaa skte he hum
+      b) step to indicate kitni steps bchi he, hum kitni step aage gye
+      c) jump to store answer
+   */
+   
+   int maxR=a[0];
+   int step=a[0]; //itni step he na filhal to humaare paas
+   int jump=1; //0 se aage to bdhna hi he
+   
+   
+   if(n==1){
+        cout<<0<<endl; //already at destination
+        return;
+   }
+   
+   if(a[0]==0){
+        cout<<-1<<endl;
+        return;
+   }
+   
+   for(int i=1;i<n;i++){
+        if(i==n-1){
+             cout<<jump<<endl;
+             return; //we got to answer safely
+        }
+        
+        maxR=max(maxR,i+a[i]);
+        step--; //took a step
+        
+        if(step==0){
+             //ab hume jump krna hi pdega, 
+             jump++;
+             
+             if(maxR<=i){
+             //means we can't even reach i from our current reach,
+             //answer is not possible
+             cout<<-1<<endl;
+             return;
+             }
+        }
+        
+        step=maxR-i; //remaining steps
+   }
+   
+    return;
+}
