@@ -287,4 +287,28 @@ return dp[n]=max(a,b,c)+1;
 Link: https://practice.geeksforgeeks.org/viewSol.php?subId=c20ca4d2c92b2e8dd29a4f53a72eb99c&pid=701901&user=yashasweni123
 
  -----------             *               -----------                 *             ---------------              *                  ---------------------           *
-
+10) LIS
+You know O(n2) DP solution but space optimised solution
+A better O(nlogn) solution comes from using binary search(lower bound)
+Code:
+  int lengthOfLIS(vector<int>& nums) {
+      
+       int n=nums.size();
+       vector<int> res;
+       //lower bound returns immediately greater than or equal to that number
+       
+       for(int i=0;i<n;i++){
+           auto it=lower_bound(res.begin(),res.end(),nums[i]);
+           
+           if(it==res.end()){
+               res.push_back(nums[i]);
+           }
+           
+           else{
+               //*(it) indiactes the element which is lower bound of nums[i]
+               *(it)=nums[i]; //we replace nums[i] with even lesser number or equal to number for maximising                               //our answer
+           } 
+       }
+       
+       return res.size();
+}
