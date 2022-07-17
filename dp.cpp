@@ -390,3 +390,8 @@ Code:
    
     return;
 }
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
+12) Counting palindromic subsequences:
+  # Need to count all the possible palindromic subsequences.
+  # len 1 is always a palindrome
+ 
