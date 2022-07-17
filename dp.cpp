@@ -430,3 +430,30 @@ void hihi(){
     else cout<<"B wins!"<<endl;
     return;
 }
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
+14) Optimal Strategy for a game:
+# it is clear that is both play optimally, whatever we pick, we will get minimum of the next available options, as opponent is wise too!
+# it's clear we gonna start with 0 and n-1 and iterate until i>j
+# Code:
+long long dp[1001][1001];
+    
+    long long solve(int i, int j, int arr[]){
+        if(i>j){
+            return 0;
+        }
+        
+        if(dp[i][j]!=-1){
+            return dp[i][j];
+        }
+        
+        int x=arr[i]+min(solve(i+2,j,arr),solve(i+1,j-1,arr));
+        int y=arr[j]+min(solve(i+1,j-1,arr),solve(i,j-2,arr));
+        
+        return dp[i][j]=max(x,y);
+    }
+    
+    long long maximumAmount(int arr[], int n){
+        
+       memset(dp,-1,sizeof(dp));
+        return solve(0,n-1,arr);
+    }
