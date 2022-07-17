@@ -47,5 +47,38 @@ int power2 (int n){
        int ans= stx + msb + countSetBits(rest);
        
        return ans;
-       
-    }
+      }
+
+Q3-- Find square of a number without using * / or power
+  1) Can be done with adding n n number of times
+  2) By using bitwise:
+Approach:
+/*If n is even, it can be written as
+  n = 2*x 
+  n2 = (2*x)2 = 4*x2
+If n is odd, it can be written as 
+  n = 2*x + 1
+  n2 = (2*x + 1)2 = 4*x2 + 4*x + 1
+  */
+
+Code:
+int power(int n){
+     if(n==0) return 0;
+     if(n<0)  n=-n;
+     
+     int ans=0;
+     
+     if(n%2==0) ans= 4*power(n/2);
+     else  ans=4*power(n/2)+ 4*(n/2)+1;
+     
+     return ans;
+}
+
+void hihi(){
+    
+    int n;
+    cin>>n;
+    
+    cout<<power(n)<<endl;
+    return;
+}
