@@ -395,3 +395,38 @@ Code:
   # Need to count all the possible palindromic subsequences.
   # len 1 is always a palindrome
  
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
+13) Who will win, a or b
+Code:
+void hihi(){
+    int n,x,y;
+    cin>>n>>x>>y;
+ 
+    bool dp[n+1];
+    
+    dp[0]=false;
+    dp[1]=1;
+    
+    for(int i=2;i<=n;i++){
+         if(i-1>=0 and !dp[i-1]){
+              dp[i]=true; //dp[i-1] needs to be false else the other player would win!
+         }
+         
+         else if(i-x>=0 and !dp[i-x]){
+              dp[i]=true;
+         }
+         
+         else if(i-y>=0 and !dp[i-y]){
+              dp[i]=true;
+         }
+         
+         else dp[i]=false;
+    }
+    
+    if(dp[n]==true){
+         cout<<"A wins!"<<endl;
+    }
+    
+    else cout<<"B wins!"<<endl;
+    return;
+}
