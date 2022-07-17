@@ -434,7 +434,7 @@ void hihi(){
 14) Optimal Strategy for a game:
 # it is clear that is both play optimally, whatever we pick, we will get minimum of the next available options, as opponent is wise too!
 # it's clear we gonna start with 0 and n-1 and iterate until i>j
-# Code:
+ Code:
 long long dp[1001][1001];
     
     long long solve(int i, int j, int arr[]){
@@ -457,3 +457,10 @@ long long dp[1001][1001];
        memset(dp,-1,sizeof(dp));
         return solve(0,n-1,arr);
     }
+
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
+15) The maximum length of pair of chains.
+	a) Dp O(n square) solution is much like the lis solution, but we choose greedy as its less time consuming.
+
+	
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
