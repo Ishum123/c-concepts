@@ -433,7 +433,7 @@ void hihi(){
 -----------             *               -----------                 *             ---------------              *                  ---------------------           *
 14) Optimal Strategy for a game:
 # it is clear that is both play optimally, whatever we pick, we will get minimum of the next available options, as opponent is wise too!
-# it's clear we gonna start with 0 and n-1 and iterate until i>j
+# its clear we gonna start with 0 and n-1 and iterate until i>j
  Code:
 long long dp[1001][1001];
     
