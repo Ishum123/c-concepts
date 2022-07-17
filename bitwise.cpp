@@ -21,7 +21,7 @@ After many observations of some great ppl, we come to know that:
   #1 First find nearest power of x, the no of set bits till it are: x *(2 power (x-1))
   #2 Now for msb of remaining digits, we add n-(2 power x)+1 to answer, that is no of remaining elements, all having msb set
   #3 The number left noe reduces again to 1----lower of power of 2
-  #4 Finally, we need to find that lower power of 2 recursively, we're done!! :)
+  #4 Finally, we need to find that lower power of 2 recursively, we are done!! :)
 
 Code:
 int power2 (int n){
