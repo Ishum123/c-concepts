@@ -246,3 +246,41 @@ int maxEvenOdd(int arr[], int n)
         return ans;
 }
 	
+// 14 - Longest subarray that is divisible by k
+	# We make use of modulus concept and map
+	# mod array contains sum till i and its modulus
+	# if you encounter zero there, update the answer
+Code:
+		int longSubarrWthSumDivByK(int arr[], int n, int k)
+	{
+	    // Complete the function
+	    //int sum=0;
+	    map<int,int> mp;
+	    
+	    int sum=0;
+	    int ans=0;
+	    int maxLength=0;
+	    
+	    for(int i=0;i<n;i++){
+	        sum+=arr[i];
+	        
+	        int mod=((sum%k)+k)%k; //to handle negative we do like this
+	        
+	        if(mod==0){
+	            ans=max(ans,i+1);
+	        }
+	        
+	        else if(mp.find(mod)==mp.end()){
+	            mp[mod]=i;
+	        }
+	        
+	        else{
+	            ans=max(ans,i-mp[mod]);
+	        }
+	    }
+	    
+	    return ans;
+	}
+	
+//15 - Printing all possible combinations of r elements in the array
+	
