@@ -464,3 +464,12 @@ long long dp[1001][1001];
 
 	
 -----------             *               -----------                 *             ---------------              *                  ---------------------           *
+16) Wildcard string Matching:
+Pyaara problem bhai!
+  # First, think of base cases
+  # Think what you can subtract or add in recursive calls
+  # make a lookup memo dp table, and you will be able to solve this beautiful problem!
+  # See link and solve again, I know you can do this!
+Link: https://practice.geeksforgeeks.org/problems/wildcard-string-matching1126/1
+
+-----------             *               -----------                 *             ---------------              *                  ---------------------           *
