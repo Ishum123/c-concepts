@@ -246,5 +246,61 @@ Prim MST: https://practice.geeksforgeeks.org/viewSol.php?subId=f5d1aeb42139567ff
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
-  
+  Q5) Travelling salesmAN problem: Np hard problem
+  1) By naive approach or by DP: https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/
+  Code for dp memoisation:
+int n=4;
+//Adj matrix which defines our graph
+int dist[10][10]={
+     {0,20,42,25},
+     {20,0,30,34},
+     {42,30,0,10},
+     {25,34,10,0}
+};
+
+//if all cities have been visited
+int all= (1<<n)-1;
+
+//mask->sets of cities visited so far
+//pos->where we currently are.
+
+int dp[16][4]; //in this case(generally, (2 pow n)(n cities))
+//reduces n! time complexity to 2 pow n
+
+int tsp(int mask, int pos){
+     if(mask==all){ //all cities are visited.
+          return dist[pos][0];
+          //going back to source from curr pos
+     }
+     
+     //look-up
+     if(dp[mask][pos]!=-1){
+          return dp[mask][pos];
+     }
+     
+     int ans=INT_MAX;
+     //Try to go to unvisited city
+     for(int i=0;i<n;i++){
+          if((mask & (1<<i))==0){
+               //city not visited yet
+               int nans=dist[pos][i]+tsp(mask|(1<<i), i);
+               ans=min(ans,nans);
+          }
+     }
+     
+     return dp[mask][pos]=ans;
+}
+
+void hihi(){
+   
+   for(int i=0;i<(1<<n);i++){
+        for(int j=0;j<n;j++){
+             dp[i][j]=-1;
+        }
+   }
+    cout<<tsp(1,0)<<endl;//mask,city pos
+    return;
+}
+
+  2) By MST by considering some inequaltities: https://www.geeksforgeeks.org/travelling-salesman-problem-set-2-approximate-using-mst/
   
