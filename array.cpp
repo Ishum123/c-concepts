@@ -137,7 +137,7 @@ void printFreq(int arr[], int n)
 	return res;
 
 //9 *continuous- sub array*
-    maximum sum subarray- kadane's algo
+    maximum sum subarray- kadane algo
     
     int maxSum(int arr[], int n)
 {
@@ -283,4 +283,48 @@ Code:
 	}
 	
 //15 - Printing all possible combinations of r elements in the array
+int n=5;
+int r=3;
+vector<vector<int>> ans;
+vector<int> arr={1,2,3,4,5};
+
+//Similar to nCr=(n-1)C(r-1)+ (n-1)C(r)
+//len bdhega if element liya, else len remains same(element is excluded)
+void memo(vector<int> data, int i, int len){
+     
+     //Made one combination
+     if(len==r){
+          ans.push_back(data);
+          return;
+     }
+     
+     //Base Case
+     if(i>=n){
+          return;
+     }
+     
+     //iterating through indexes
+     data.pb(arr[i]);
+     memo(data,i+1,len+1); 
+     data.pop_back(); //bakctrack for next solution
+     memo(data,i+1,len);
+     
+}
+
+void hihi(){
+   
+    vector<int> data;
+    memo(data,0,0);
+    
+    for(auto it:ans){
+         vector<int> temp=it;
+         
+        for(int i=0;i<r;i++){
+             cout<<temp[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return;
+}
+
 	
