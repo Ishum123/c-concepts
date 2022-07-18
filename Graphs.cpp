@@ -303,4 +303,18 @@ void hihi(){
 }
 
   2) By MST by considering some inequaltities: https://www.geeksforgeeks.org/travelling-salesman-problem-set-2-approximate-using-mst/
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Q6) Two cliques: tewo subgraphs where all vertices are connected!
+  // if the complement of graph is bipartite, then graph can be divided into two cliques
+  //code for complement:
+   int GC[V][V];
+    for (int i=0; i<V; i++)
+        for (int j=0; j<V; j++)
+             GC[i][j] = (i != j)?  !G[i][j] : 0;
+ 
+    // Return true if complement is Bipartite
+    // else false.
+    return  isBipartite(GC);
   
