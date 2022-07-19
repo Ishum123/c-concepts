@@ -327,7 +327,7 @@ void hihi(){
     return;
 }
 
-//Length of largest subarray having contiguos elements:
+//16 - Length of largest subarray having contiguos elements:
 Code:
 	int arr[]={1, 56, 58, 57, 90, 92, 94, 93, 91, 45};
      int n=10;
@@ -347,6 +347,41 @@ Code:
                
                if(abs(mx-mn)==abs(j-i)){
                     ans=max(ans,(mx-mn+1));
+               }
+          }
+     }
+     
+     cout<<ans<<endl;
+     return;
+}
+
+//17 - for repeating elements!
+Code:
+void hihi(){
+     int arr[] = {10, 12, 12, 10, 10, 11, 10};
+     int n=7;
+     
+     int ans=1;
+     //if elements are same, need to work out on it!
+     //keep a set for that particular traversal and if element comes again, discard the answers
+     
+     for(int i=0;i<n-1;i++){
+          int mx=arr[i];
+          int mn=arr[i];
+          set<int> st;
+          st.insert(arr[i]);
+          
+          for(int j=i+1;j<n;j++){
+               if(st.find(arr[j])!=st.end()){
+                    break;
+               }
+               
+               st.insert(arr[j]);
+               mx=max(arr[j],mx);
+               mn=min(mn,arr[j]);
+               
+               if(abs(mx-mn)==abs(i-j)){
+                    ans=max(ans,mx-mn+1);
                }
           }
      }
