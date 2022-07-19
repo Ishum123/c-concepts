@@ -60,6 +60,65 @@ void hihi(){
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2) Counting inversions
+int merge(int arr[], int low, int mid, int high){
+     int n1=mid-low+1;
+     int n2=high-mid;
+     
+     int ans=0;
+     
+     int a1[n1],a2[n2];
+     
+     for(int i=0;i<n1;i++){
+          a1[i]=arr[low+i];
+     }
+     
+     for(int i=0;i<n2;i++){
+          a2[i]=arr[mid+1+i];
+     }
+     
+     int i=0,j=0,k=low;
+     
+     while(i<n1 and j<n2){
+          if(a1[i]<=a2[j]){
+               arr[k++]=a1[i++];
+          }
+          else{
+               arr[k++]=a2[j++];
+               ans+=(n1-i);
+          }
+     }
+     
+     while(i<n1){
+          arr[k++]=a1[i++];
+     }
+     
+     while(j<n2){
+          arr[k++]=a2[j++];
+     }
+     return ans;
+}
+
+int mergeSort(int arr[], int low, int high){
+     int ans=0;
+     if(low<high){
+          int mid=low+(high-low)/2;
+          
+          ans+=mergeSort(arr,low,mid);
+          ans+=mergeSort(arr,mid+1,high);
+          
+          ans+=merge(arr,low,mid,high);
+     }
+     return ans;
+}      
+
+void hihi(){
+     int arr[] =  {1, 20, 6, 4, 5};
+     int n=5;
+     //implementing and practicing merge sort
+     
+     cout<<mergeSort(arr,0,n-1);
+     return;
+}
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 3) Finding surpasser of the elements of the array
 Link: https://practice.geeksforgeeks.org/problems/surpasser-count0615/1
