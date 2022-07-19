@@ -327,4 +327,30 @@ void hihi(){
     return;
 }
 
-	
+//Length of largest subarray having contiguos elements:
+Code:
+	int arr[]={1, 56, 58, 57, 90, 92, 94, 93, 91, 45};
+     int n=10;
+     
+     int ans=1;
+     //if diff btw maximum and minimum element of subarray
+     //is equal to the diff of first and last index of subarray
+     //the ans=len(i-j)
+     
+     for(int i=0;i<n-1;i++){
+          int mx=arr[i];
+          int mn=arr[i];
+          
+          for(int j=i+1;j<n;j++){
+               mx=max(mx,arr[j]);
+               mn=min(mn,arr[j]);
+               
+               if(abs(mx-mn)==abs(j-i)){
+                    ans=max(ans,(mx-mn+1));
+               }
+          }
+     }
+     
+     cout<<ans<<endl;
+     return;
+}
