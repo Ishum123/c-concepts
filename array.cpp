@@ -389,3 +389,27 @@ void hihi(){
      cout<<ans<<endl;
      return;
 }
+
+//18 - Sum of lengths
+# https://practice.geeksforgeeks.org/problems/sum-of-length3345/1
+# If distinct elements:
+int sumoflength(int a[], int n)
+    {
+        int ans=0;
+        
+        int add=1;
+        
+        for(int i=n;i>=1;i--){
+            ans+=(add*i);
+            add++;
+        }
+        
+        return ans;
+    }
+
+# if elements are not distinct:
+/*
+An efficient solution is based on the fact that if we know all elements in a subarray arr[i..j] are distinct,
+sum of all lengths of distinct element subarrays in this sub array is ((j-i+1)*(j-i+2))/2. How? the possible lengths of subarrays are 1, 2, 3,……, j – i +1.
+So, the sum will be ((j – i +1)*(j – i +2))/2.
+*/
