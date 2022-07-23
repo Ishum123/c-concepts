@@ -4,7 +4,7 @@ Q1) Kth ancestor of a tree node.
 Link: https://www.geeksforgeeks.org/kth-ancestor-node-binary-tree-set-2/
 
 //Approach:
-1) First, we find the node we need to find ancestors of and then we recursively backtrack to reach the node that is our answer, if no such node exists, means if the called parent is not NULL(We can't reach that node) return -1.
+1) First, we find the node we need to find ancestors of and then we recursively backtrack to reach the node that is our answer, if no such node exists, means if the called parent is not NULL(We cant reach that node) return -1.
 
 Code:
 Node* temp = NULL;
@@ -50,7 +50,7 @@ int main(){
 Q2) Binary Tree to DLL:
 # We would use the same left and right pointers to convert binary tree to linked list, while doing inorder traversal of tree
 # if prev==NULL, this means this is head pointer,
-# Rest we just need to change the references of prev and root and we'll get our answers.
+# Rest we just need to change the references of prev and root and we will get our answers.
 
 Code: 
   Node *prev=NULL;
@@ -75,7 +75,7 @@ Code:
     }
   
 Q3) Tree from postorder and inorder, preorder and inorder:
-1) In inorder, we follow normal inorder traversal,
+1) In prerder, we follow normal preorder traversal,
 2) while in postorder, we reverse the criteria, that is we do: root->right->left instead of left->right->root. Also we start with reverse iterating in post array.
   
 Links:
