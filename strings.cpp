@@ -136,4 +136,27 @@ void hihi(){
      cout<<pos<<endl;
      return;
 }
+
+Q3) Base 2 to base 6
+    void hihi(){
+     string s="100111";
+     int n=s.length();
+     
+     //getting decimal value from base 2 numbers(binary)
+     __int128 num=0;
+     for(int i=0;i<n;i++){
+          num=num*2+(s[i]-'0');
+     }
+     
+     vector<int> ans;
  
+    // Decimal to base 6
+    while (num> 0) {
+        ans.push_back(num % 6);
+        num = num / 6;
+    }
+     
+     reverse(all(ans));
+     fors(i,0,ans.size()) cout<<ans[i];
+     return;
+}
